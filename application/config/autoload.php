@@ -58,7 +58,7 @@ $autoload['packages'] = array();
 |
 |	$autoload['libraries'] = array('user_agent' => 'ua');
 */
-$autoload['libraries'] = array('parser', 'database');
+$autoload['libraries'] = array('parser', 'database', 'parsedown');
 
 /*
 | -------------------------------------------------------------------
@@ -71,7 +71,7 @@ $autoload['libraries'] = array('parser', 'database');
 |
 | Prototype:
 |
-|	$autoload['drivers'] = array('cache');
+|	//$autoload['drivers'] = array('cache');
 |
 | You can also supply an alternative property name to be assigned in
 | the controller:
