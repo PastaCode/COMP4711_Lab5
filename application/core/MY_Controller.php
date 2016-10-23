@@ -17,23 +17,28 @@ class Application extends CI_Controller
 	 * Establish view parameters & load common helpers
 	 */
 
-	function __construct()
-	{
+	function __construct() {
 		parent::__construct();
 
 		//  Set basic view parameters
 		$this->data = array ();
-		$this->data['pagetitle'] = 'CodeIgniter3.1 Starter 2';
+		$this->data['pagetitle'] = 'Spaghetti Pasta';
 		$this->data['ci_version'] = (ENVIRONMENT === 'development') ? 'CodeIgniter Version <strong>'.CI_VERSION.'</strong>' : '';
 	}
 
 	/**
 	 * Render this page
 	 */
-	function render($template = 'template')
-	{
-		$this->data['content'] = $this->parser->parse($this->data['pagebody'], $this->data, true);
-		$this->parser->parse('template', $this->data);
-	}
+	function render($template = 'template') {
+            
+            //render navigation bar
+            $this->data['navbar'] = $this->parser->parse('navbar', $this->data, true);
+            
+            //use layout content if provided
+            if (!isset($this->data['content'])) {
+                $this->data['content'] = $this->parser->parse($this->data['pagebody'], $this->data, true);
+            }
+            $this->parser->parse($template, $this->data);
+        }
 
 }
